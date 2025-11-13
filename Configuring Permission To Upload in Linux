@@ -1,0 +1,10 @@
+🟨 4. Configure Permissions
+sudo chown -R Vishpinder:www-data /var/www/html
+sudo chmod -R 775 /var/www/html
+
+🟪 5. Upload Website via SCP
+Exit VM:
+exit
+On Mac:
+cd ~/Downloads/mywebsite
+scp -r * Vishpinder@20.213.184.67:/var/www/html/
