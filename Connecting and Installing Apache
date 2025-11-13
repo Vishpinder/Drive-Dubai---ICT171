@@ -1,0 +1,12 @@
+🟧 1. Connecting via SSH
+On Mac Terminal:
+ssh Vishpinder@20.213.184.67
+
+🟧 2. Install Apache
+sudo apt update
+sudo apt install apache2 -y
+Start/enable:
+sudo systemctl enable apache2
+sudo systemctl start apache2
+
+Now search ip address and a default Apache webpage will be visibel!!!!
