@@ -1,0 +1,25 @@
+🟦 1. Create Azure Virtual Machine
+Step 1: Log in
+https://portal.azure.com
+
+Step 2: Create a Resource Group
+Search Resource Groups
+Click Create
+Name it (example: WebProjectRG)
+
+Step 3: Create the VM
+Search Virtual Machines → Create
+Use:
+Region: Australia East
+Image: Ubuntu 22.04 LTS
+Size: B1s
+Auth: Password
+Username: Vishpinder
+
+Step 4: Networking
+Allow SSH (22)
+Allow HTTP (80)
+Enable Public IP
+Click Create.
+
+You have successfully created virtual machine!!!!!
