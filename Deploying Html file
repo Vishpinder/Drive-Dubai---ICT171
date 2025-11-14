@@ -1,0 +1,14 @@
+🟫 6. Replace Default Apache Page
+Reconnect:
+ssh Vishpinder@20.213.184.67
+cd /var/www/html
+sudo rm index.html
+sudo mv DriveDubai.html index.html
+
+🟦 7. Test Using Public IP
+Open:
+http://20.213.184.67
+
+
+You should now see your custom website instead of Apache’s default page.
+
