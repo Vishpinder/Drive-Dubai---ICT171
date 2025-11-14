@@ -1,0 +1,40 @@
+🟧 11. Add Server Health Monitoring Script
+
+🟪 Purpose of the Script
+The purpose of this script is to continuously monitor the performance and availability of the DriveDubai server. It records:
+Apache service status
+Website HTTP response code
+CPU usage
+RAM usage
+Disk usage
+The script logs all results into a file so issues such as downtime, overload, or service failures can be detected early. This ensures the website remains stable and performs reliably.
+
+Create script
+sudo nano /usr/local/bin/server-health.sh
+
+Paste
+#!/bin/bash
+LOGFILE="/var/log/server-health.log"
+SITE="https://drivedubai.digital"
+
+echo "----- Health Check: $(date) -----" >> "$LOGFILE"
+APACHE=$(systemctl is-active apache2)
+echo "Apache Status: $APACHE" >> "$LOGFILE"
+HTTP_CODE=$(curl -o /dev/null -s -w "%{http_code}" "$SITE")
+echo "Website HTTP Response: $HTTP_CODE" >> "$LOGFILE"
+CPU=$(top -bn1 | grep "Cpu(s)" | awk '{print $2 + $4"%"}')
+echo "CPU Usage: $CPU" >> "$LOGFILE"
+RAM=$(free -m | awk '/Mem/ {printf "%dMB used / %dMB total", $3, $2}')
+echo "RAM Usage: $RAM" >> "$LOGFILE"
+DISK=$(df -h / | tail -1 | awk '{print $5}')
+echo "Disk Usage: $DISK" >> "$LOGFILE"
+echo "" >> "$LOGFILE"
+
+Make executable
+sudo chmod +x /usr/local/bin/server-health.sh
+
+Run
+sudo /usr/local/bin/server-health.sh
+
+Check log
+cat /var/log/server-health.log
