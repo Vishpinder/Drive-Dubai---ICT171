@@ -1,0 +1,21 @@
+⬛ 8. Configure DNS for drivedubai.digital
+Add DNS records:
+Type	Name	Value
+A	@	20.213.184.67
+A	www	20.213.184.67
+
+🟦 9. Enable SSL Certificate (HTTPS)
+Install Certbot:
+sudo apt install certbot python3-certbot-apache -y
+sudo a2enmod ssl
+sudo systemctl restart apache2
+Generate certificate:
+sudo certbot --apache -d drivedubai.digital -d www.drivedubai.digital
+
+🟩 10. Test Website
+Test IP
+Test domain
+Test HTTPS redirect
+Check images, CSS, pages
+
+You can now successfully see your website running on your domain as well as IP Address!!!
